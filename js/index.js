@@ -1,73 +1,71 @@
- var ankerin =document.querySelector('.formSingin h2 a');
- var ankerup =document.querySelector('.formSignUp h2 a');
- var btnin =document.querySelector('.formSingin button');
 
-var formSingin =document.querySelector('.formSingin');
-var formWelcome =document.querySelector('.formWelcome');
-
+var formSingin  =document.querySelector('.formSingin');
+var formSignUp  =document.querySelector('.formSignUp');
 function displaynone(){
-    formSingin.classList.toggle('d-none')
-    formSignUp.classList.toggle('d-none')
-}
-ankerin.addEventListener('click',function(eventIfo){
-     eventIfo.preventDefault();
-     displaynone()
-})
-btnin.addEventListener('click',function(eventIfo){
+    formSingin.classList.toggle('d-none');
+    formSignUp.classList.toggle('d-none');
+    }
+    
+    var ankerin =document.querySelector('.formSingin h2 a');
+    ankerin.addEventListener('click',function(eventIfo){
+        eventIfo.preventDefault();
+        displaynone()
+        })
+
+
+    var formWelcome =document.querySelector('.formWelcome');
+    var btnSingIN =document.querySelector('.formSingin .btnSingIN');
+ btnSingIN.addEventListener('click',function(eventIfo){
     eventIfo.preventDefault();
-    displaynone()
+    formWelcome.classList.toggle('d-none');
+    formSingin.classList.toggle('d-none');
     
     })
     //============================================= sing UP===================================================
-var inSingUpName  =document.getElementById("inSingUpName");
-var inSingUPEmali =document.getElementById("inSingUPEmali");
-var inSingUpPass  =document.getElementById("inSingUpPass");
+
 var formSignUp =document.querySelector('.formSignUp');
-var btnSingUp =document.getElementById('btnSingUp');
-
-
+var ankerup =document.querySelector('.formSignUp h2 a');
     ankerup.addEventListener('click',function(eventIfo){
          eventIfo.preventDefault();
        displaynone()
         
     })
+
+
 var singUPlist =[];
     if(localStorage.getItem('singUP')!=null)
         {
             singUPlist=JSON.parse(localStorage.getItem('singUP'))
         }
 
+
+        var btnSingUp     =document.getElementById('btnSingUp');
+        var inSingUpName  =document.getElementById("inSingUpName");
+        var inSingUPEmali =document.getElementById("inSingUPEmali");
+        var inSingUpPass  =document.getElementById("inSingUpPass");
 btnSingUp.addEventListener('click', function(eventInfo){
-       
-    console.log('welcomeeeeee');
-    eventInfo.preventDefault();
-    addUser();
-
-        })
-
-function addUser(){
     Sing = {
         Name:inSingUpName.value,
         Email:inSingUPEmali.value,
         Pass:inSingUpPass.value,
         }
+        localStorage.setItem('singUP',JSON.stringify(singUPlist));
         singUPlist.push(Sing);
-        shickSingUp();
-        console.log(singUPlist);
-//    displayone()
-}
- function shickSingUp(){
-    for(var i= 0 ; i<singUPlist.length ; i++){
-        if(singUPlist[i].Email == inSingUPEmali.value){
-            
-            console.log('true')
-            
-            }
-            else{
-                console.log('false')
-                localStorage.setItem('singUP',JSON.stringify(singUPlist));
-           
+
+    console.log('welcomeeeeee');
+    eventInfo.preventDefault();
+})
+
+for(var i= 0 ; i<singUPlist.length ; i++){
+
+       if(singUPlist[i].Email == inSingUPEmali.value){
+        
+            console.log('true');
         }
+        else{
+
+            console.log('false');
+
+       
     }
-    console.log('shicksingUP');
 }
