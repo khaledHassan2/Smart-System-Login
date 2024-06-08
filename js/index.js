@@ -32,40 +32,49 @@ var ankerup =document.querySelector('.formSignUp h2 a');
     })
 
 
-var singUPlist =[];
-    if(localStorage.getItem('singUP')!=null)
-        {
-            singUPlist=JSON.parse(localStorage.getItem('singUP'))
-        }
-
+var singUPlist =[{Name: "", Email: "", Pass: ""}];
+   
 
         var btnSingUp     =document.getElementById('btnSingUp');
         var inSingUpName  =document.getElementById("inSingUpName");
         var inSingUPEmali =document.getElementById("inSingUPEmali");
         var inSingUpPass  =document.getElementById("inSingUpPass");
+        
 btnSingUp.addEventListener('click', function(eventInfo){
     Sing = {
         Name:inSingUpName.value,
         Email:inSingUPEmali.value,
         Pass:inSingUpPass.value,
         }
-        localStorage.setItem('singUP',JSON.stringify(singUPlist));
-        singUPlist.push(Sing);
-
     console.log('welcomeeeeee');
     eventInfo.preventDefault();
+    
+    function chik(){
+        for(var i= 0 ; i<singUPlist.length ; i++){
+
+            if(singUPlist[i].Email == inSingUPEmali.value){
+               
+                 return true;
+             }
+             else{
+                return false; 
+         }
+     }
+    }
+    if(chik()== true){
+       
+        console.log('true');
+    }
+    else if(chik()== false){
+        console.log('false');
+        singUPlist.push(Sing);
+        localStorage.setItem('singUP',JSON.stringify(singUPlist));
+        if(localStorage.getItem('singUP')!=null)
+            {
+                singUPlist=JSON.parse(localStorage.getItem('singUP'))
+            }
+    
+    }
 })
 
-for(var i= 0 ; i<singUPlist.length ; i++){
 
-       if(singUPlist[i].Email == inSingUPEmali.value){
-        
-            console.log('true');
-        }
-        else{
-
-            console.log('false');
-
-       
-    }
-}
