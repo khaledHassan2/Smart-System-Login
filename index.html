@@ -6,30 +6,39 @@
     <title>LogIN</title>
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <!-- <link rel="stylesheet" href="css/style.css"> -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="bg-info">
-    
-<section class="formSingin container mt-5">
-    <div class="p-5 bg-primary shadow">
-        <h1 class="text-center">Smart Login System</h1>
-        <form action="" class="d-flex justify-content-center align-items-center flex-wrap">
-            <input  class="form-control w-75 m-3" type="email" placeholder="Enter your email">
-            <input  class="form-control w-75 mb-3" type="password" placeholder="Enter your password">
-            <button  type="submit" class="btnSingIn btn btn-outline-info w-75 m-3">Login</button>
-            <h2 class="h6">Don’t have an account?<a href="" class="text-black ms-1">Sign UP</a></h2>
-        </form>
-
-    </div>
-    
+<body>
+<section class="formSingin container rounded-bottom-circle shadow">
+    <div class=" mt-5 py-5 ">
+             <h1 class="text-center mb-3">Smart Login System</h1>
+                <form action="" class="text-center w-75 mx-auto">    
+                        <div class="form-floating mb-3">
+                           <input id="inSingInEmali" type="email" class="form-control rounded-pill" placeholder="name@example.com">
+                           <label for="floatingInput"><i class="fa-solid fa-user me-1"></i>Enter your email</label>
+                        </div>
+                        <div class="form-floating">
+                           <input id="inSingInPass" type="password" class="form-control rounded-pill " placeholder="Password">
+                           <label for="floatingPassword"><i class="fa-solid fa-lock me-1"></i>Enter your password</label>
+                        </div>
+                       
+                        <h2 class="incorrect h6 alert alert-danger w-50 mx-auto  d-none mt-2">incorrect email or password</h2>
+                    <button  type="submit" class="btnSingIn btn btn-outline-info w-75 m-3 rounded-pill">Login</button>
+                    <h2 class="h6">Don’t have an account?<a href="" class="text-black ms-1">Sign UP</a></h2>
+                </form>
+            </div>
 </section>
 <section class="formSignUp d-none container mt-5">
-    <div class="p-5 bg-primary shadow">
+    <div class="p-5 shadow">
         <h1 class="text-center">Smart Login System</h1>
-        <form action="" class="d-flex justify-content-center align-items-center flex-wrap">
+        <form action="" class="text-center">
+           <div class="d-flex justify-content-center align-content-center flex-wrap">
             <input id="inSingUpName" class="form-control w-75 m-3" type="text" placeholder="Enter your name">
             <input id="inSingUPEmali" class="form-control w-75 mb-3" type="email" placeholder="Enter your email">
             <input id="inSingUpPass" class="form-control w-75 mb-3" type="password" placeholder="Enter your password">
+           </div>
+            <h2 class="exists h6 alert alert-danger w-50 mx-auto d-none">email already exists</h2>
+            <h2 class="success h6 alert alert-success w-50 mx-auto text-success d-none">Success</h2>
             <button id="btnSingUp" type="submit" class="btn btn-outline-info w-75 m-3">Login</button>
             <h2 class="h6 d-inline-block mx-5"> You have an account? <a href="" class="text-black ms-1">Signin</a></h2>
         </form>
@@ -38,11 +47,8 @@
     
 </section>
 
-<section class="formWelcome d-none container mt-5 bg-warning">
-    <div class="p-5 bg-primary shadow text-center position-relative">
-        <h1 class="m-5">welcome your</h1>
-        <a href="index.html" class="logout btn btn-outline-warning">Log out</a>
-    </div>
+<section class="formWelcome d-none container mt-5">
+    
 </section>
 
 

@@ -5,3 +5,13 @@
     transform: translate(-50%,-50%);
 
 }
+body{
+    background-image: url("../imgs/imge1.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* object-fit:contain; */
+    /* background-color: rgba(167, 230, 255, 0.5); */
+}
+body section{
+    background-image:linear-gradient(rgba(36, 33, 236, 0.5),rgba(32, 216, 16, 0.5));
+}
