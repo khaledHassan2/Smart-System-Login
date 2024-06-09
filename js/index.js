@@ -14,13 +14,15 @@ function displaynone(){
 
 
     var formWelcome =document.querySelector('.formWelcome');
-    var btnSingIN =document.querySelector('.formSingin .btnSingIN');
- btnSingIN.addEventListener('click',function(eventIfo){
+    var btnSingIn =document.querySelector('.formSingin .btnSingIn');
+ btnSingIn.addEventListener('click',function(eventIfo){
+    
     eventIfo.preventDefault();
     formWelcome.classList.toggle('d-none');
     formSingin.classList.toggle('d-none');
     
     })
+    //============================================= sing UP===================================================
     //============================================= sing UP===================================================
 
 var formSignUp =document.querySelector('.formSignUp');
@@ -33,6 +35,10 @@ var ankerup =document.querySelector('.formSignUp h2 a');
 
 
 var singUPlist =[{Name: "", Email: "", Pass: ""}];
+if(localStorage.getItem('singUP')!=null)
+    {
+        singUPlist=JSON.parse(localStorage.getItem('singUP'))
+    }
    
 
         var btnSingUp     =document.getElementById('btnSingUp');
@@ -48,33 +54,19 @@ btnSingUp.addEventListener('click', function(eventInfo){
         }
     console.log('welcomeeeeee');
     eventInfo.preventDefault();
-    
-    function chik(){
-        for(var i= 0 ; i<singUPlist.length ; i++){
-
-            if(singUPlist[i].Email == inSingUPEmali.value){
-               
-                 return true;
-             }
-             else{
-                return false; 
+    for(var i= 0 ; i<singUPlist.length ; i++){
+        if(singUPlist[i].Email == inSingUPEmali.value){
+            
+            console.log('true');
+        //    return true;
          }
+         else{
+             console.log('false');
+             singUPlist.push(Sing);
+             localStorage.setItem('singUP',JSON.stringify(singUPlist));
+            //  return false; 
      }
-    }
-    if(chik()== true){
-       
-        console.log('true');
-    }
-    else if(chik()== false){
-        console.log('false');
-        singUPlist.push(Sing);
-        localStorage.setItem('singUP',JSON.stringify(singUPlist));
-        if(localStorage.getItem('singUP')!=null)
-            {
-                singUPlist=JSON.parse(localStorage.getItem('singUP'))
-            }
-    
-    }
+ }
 })
 
 
